@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-create-accounting-profile-table
+      author: accounting-service
+      changes: 
+      - createTable:
+          columns:
+          - column:
+              constraints:
+                primaryKey: true
+                primaryKeyName: accounting_service_pk
+              name: tax_id
+              type: bigserial
+          - column:
+              constraints:
+                nullable: false
+              name: name
+              type: varchar(100)
+          - column:
+              constraints:
+                nullable: false
+              name: email_id
+              type: varchar(50)
+          - column:
+              constraints:
+                nullable: false
+              name: client_type
+              type: varchar(20)
+          - column:
+              constraints:
+                nullable: false
+              name: created_timestamp
+              type: timestamp
+          - column:
+              constraints:
+                nullable: false
+              name: updated_timestamp
+              type: timestamp
+          tableName: accounting_profile
+          
+               

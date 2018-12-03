@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: local
+  application: 
+    name: accounting-profile-service
+---
+
+spring:
+  profiles: local
+datasource:
+  write:
+     database: POSTGRESQL
+     driverClassName: org.postgresql.Driver
+     url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
+     username: postgres
+     password: Dece2018
+server:
+  port: 8081
