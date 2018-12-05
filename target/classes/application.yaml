@@ -14,5 +14,4 @@ datasource:
      url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
      username: postgres
      password: Dece2018
-server:
-  port: 8081
+

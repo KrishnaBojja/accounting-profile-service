@@ -1,4 +1,4 @@
-package com.intuit.acoountingprofileservice.adapter.datastore;
+package com.intuit.accountingprofileservice.adapter.datastore;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -23,7 +23,7 @@ import com.intuit.accountingprofileservice.domain.AccountingProfile;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 @ContextConfiguration
-public class JdbcAccountingProfileRepositoryTest {
+public class JdbcAccountingProfileRepositoryIntTest {
 	
 	@Autowired
 	private JdbcTemplate writeJdbcTemplate;

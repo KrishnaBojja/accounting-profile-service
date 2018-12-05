@@ -60,7 +60,7 @@ public class JdbcAccountingProfileRepository implements AccountingProfileReposit
 			simpleJdbcInsert.execute(parameters);
 		} catch (Exception e) {
 			LOGGER.error("Error inserting accounting profile for tax_id: {}",
-					accountingProfile.getTaxId(),e);
+					accountingProfile.getTaxId(),e.getMessage());
 			return null;
 		}
 		return accountingProfile;
@@ -74,22 +74,17 @@ public class JdbcAccountingProfileRepository implements AccountingProfileReposit
 					new BeanPropertyRowMapper<>(AccountingProfile.class));
 		} catch (DataAccessException e) {
 			LOGGER.info("Error fetching accounting profile for tax_id: {}",
-					taxId,e);
+					taxId,e.getMessage());
 			return null;
 		}
 	}
 
 	@Override
 	public List<AccountingProfile> getAccountingProfileByClientType(String clientType) {
-		try {
-			return readJdbcTemplate.query(GET_ALL_ACCOUNTING_PROFILE_BY_CLIENT_TYPE,
-					new Object[] {clientType},
-					new BeanPropertyRowMapper<>(AccountingProfile.class));
-		} catch (DataAccessException e) {
-			LOGGER.info("Error fetching accounting profile for account_type: {}",
-					clientType,e);
-			return null;
-		}
+		return readJdbcTemplate.query(GET_ALL_ACCOUNTING_PROFILE_BY_CLIENT_TYPE,
+				new Object[] {clientType},
+				new BeanPropertyRowMapper<>(AccountingProfile.class));
+
 	}
 
 }

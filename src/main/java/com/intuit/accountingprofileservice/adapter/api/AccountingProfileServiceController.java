@@ -64,9 +64,9 @@ public class AccountingProfileServiceController {
 	}
 	
 	@GetMapping(value = "/accountingInfo/clients")
-	public ResponseEntity<List<AccountingProfile>> getClientDetailsByClientType(@RequestParam("accountType") String accountType) {
+	public ResponseEntity<List<AccountingProfile>> getClientDetailsByClientType(@RequestParam("clientType") String clientType) {
 		
-		List<AccountingProfile> accountingProfiles = accountingProfileRepository.getAccountingProfileByClientType(accountType);
+		List<AccountingProfile> accountingProfiles = accountingProfileRepository.getAccountingProfileByClientType(clientType);
 		if(accountingProfiles.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} else {

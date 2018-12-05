@@ -1,4 +1,4 @@
-package com.intuit.acoountingprofileservice.adapter.api;
+package com.intuit.accountingprofileservice.adapter.api;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;

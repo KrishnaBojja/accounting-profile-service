@@ -1,11 +1,11 @@
 package com.intuit.accountingprofileservice.adapter.validator;
 
-import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.intuit.accountingprofileservice.domain.AccountingProfile;
+import com.intuit.accountingprofileservice.domain.enums.ClientType;
 
 public class AccountingProfileValidator implements Validator {
 
@@ -24,6 +24,12 @@ public class AccountingProfileValidator implements Validator {
 				"Email Id cannot be empty");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "clientType", "ClientTypeEmpty",
 				"Client Type cannot be empty");
+		
+		AccountingProfile accountingProfile = (AccountingProfile)o;
+		if(ClientType.getClientTypeByCode(accountingProfile.getClientType()) == null) {
+			errors.rejectValue("clientType", "ClientType not a valid value ",
+					"ClientType value should be either Individual or Business");
+		}	
 		
 	}
 
